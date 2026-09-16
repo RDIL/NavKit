@@ -29,8 +29,8 @@ namespace {
 
 extern "C" {
 
-int extract_scene_mesh_resources(const char*, const char*, const PartitionManager*, const char*, const char*,
-    void (*log_callback)(const char*)) {
+int extract_scene_mesh_resources(
+    const char*, const char*, const PartitionManager*, const char*, const char*, void (*log_callback)(const char*)) {
     report(log_callback);
     return 1;
 }
