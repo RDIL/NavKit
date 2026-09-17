@@ -23,6 +23,9 @@ jobs:
 
       - name: Verify Formatting
         run: |
-          # Find files and run clang-format in dry-run mode. 
+          # Keep this exclusion list in sync with QUALITY_SOURCES in CMakeLists.txt.
+          # Find files and run clang-format in dry-run mode.
           # --Werror forces a non-zero exit code if formatting violations are found.
-          find src/ include/ -type f \( -name "*.cpp" -o -name "*.h" -o -name "*.hpp" \) | xargs clang-format --dry-run --Werror -style=file
+          find src/ include/ -type f \( -name "*.cpp" -o -name "*.h" -o -name "*.hpp" \) |
+            grep -Ev 'vcpkg_cached_data|build|vcpkg|extern|simdjson|swfmill|stb_truetype|ConcurrentQueue|easywsclient|QuickDigest|ResourceLib_HM3|RecastDemo' |
+            xargs clang-format --dry-run --Werror -style=file
