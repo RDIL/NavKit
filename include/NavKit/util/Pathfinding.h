@@ -16,7 +16,7 @@ namespace Pathfinding {
 
     class SGCell {
     public:
-        SGCell() : fZ(0), m_Points({}) {};
+        SGCell() : fZ(0), m_Points({}) {}
 
         float fZ;
         std::vector<float4> m_Points;
